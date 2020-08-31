@@ -1,7 +1,7 @@
 ---
 title: "Lab 2"
-author: ""
-date: ""
+author: "Fan Zhu"
+date: "`r Sys.Date()`"
 output: 
   html_document:
     toc: true
@@ -27,14 +27,20 @@ you run a simulation on a high performance computer. Although, they are
 currently disorganized. Organize the contents in `organize_me/` using the 
 command line according to the following steps.
 
-1. delete all `.input2` files.
-2. remove the `flags/` directory and all of its contents.
+1. delete all `.input2` files. `rm *.input2'
+2. remove the `flags/` directory and all of its contents. 'rm -r flags'
 3. place the test data text files in a directory named `test_data/`.
+'mkdir test_data', 'mv testdata*.txt test_data'
 4. place the `.sh` files in a directory named `scripts_shell/`.
+'mkdir scripts_shell', 'mv *.sh scripts_shell'
 5. place the `.R` files in a directory named `scripts_R/`.
+"mkdir scripts_R", "mv *.R scripts_R"
 6. place the `.qsub` files in a directory named `hpc_start/`.
+'mkdir hpc_start', 'mv *.qsub hpc_start'
 7. copy directory `organize_me/` and name the copy `simulations/`.
+'cd -', 'cp -R organize_me simulations'
 8. delete directory `organize_me/` and all of its contents.
+"rm -R organize_me"
 
 
 ## Attributes
@@ -44,6 +50,8 @@ need to set the class attribute to `"POSIXct"`
 
 ```{r}
 z <- seq(0, 3600 * 10, by = 3600)
+as.POSIXct(z, origin = "1960-01-01")  
+
 ```
 
 What do you notice about the date-time? If you are unsure, check out
@@ -60,10 +68,21 @@ x
 ```
 
 1. subset only the letters from `x`.
+```{r}
+grep('^[A-Za-z ]+$', x, value = TRUE)
+grep('^[A-Za-z ]+$', x, value = FALSE)
+```
+
 
 2. subset only the negative numbers from `x`.
+```{r}
+grep('^[A-Za-z ]+$', x, value = TRUE)
+```
+
 
 3. select the numbers divisible by 3 from `x`.
 
+
 4. remove all values with an even index from `x`.
+
 
